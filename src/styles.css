@@ -22,6 +22,8 @@ body {
     font-size: 14px;
     font-weight: 400;
     line-height: 1.7;
+    
+
 }
 .app-bar{
     height: 80px;
@@ -137,29 +139,140 @@ body {
 .lang{
     padding-bottom: 6px;
 }
+#concept-label-container{
+    width:100%;
+    height:70px;
+    padding: 24px 0px 24px 0px;
+    }
+#concept-page-label{
+    font-weight: 500;
+    font-size: 12px;
+    color:#141719;
+    
+}
+.application-body-padding{
+    width: 100%;    
+    height:101px;
+}
+#app{
+    width:100%;
+    height:100vh;
+    padding-left:205px;
+    padding-right:195px;
+    margin-top:80px;
+    
+    
+}
+.container{
+    max-width:1110px;
+    width:100%;
+    margin-left:auto;
+    height:100%;
+    max-height:376.35px;
+    min-width:500px;
+    position:relative;
+    
+    
 
 
-#app {
-    background-color: #fff;
-    padding: 20px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    width: 90%;
-    max-width: 400px;
+
+}
+.image-container{
+    position: relative;
+    overflow: hidden;
+    border-radius:6px;
+    height:100%;
+    margin: 0 auto;
+    z-index:1;
+    background-color: black;
+    
+
+
+
 }
 
-button {
-    padding: 10px 20px;
-    margin-top: 10px;
-    font-size: 16px;
+#background1{
+    border-radius: 6px;
+    object-fit: cover;
+    width:100%;
+    height:100%;
+    position:relative;
+    bottom:39.5px;
+    
 }
 
-input {
-    padding: 10px;
-    margin-right: 10px;
-    font-size: 16px;
-    width: calc(100% - 20px);
-    box-sizing: border-box;
+.background-image-wrapper{
+
+    width:1110px;
+    background-color: black;
+    z-index:2;
+    overflow:hidden;
+    position:relative;
+    opacity: 0.7;
+    
 }
+.label-for-background{
+    color: white;
+    z-index:2;
+    display:flex;
+    flex-direction:column;
+    margin:auto;
+    position:relative;
+        bottom: 490px;
+    padding:95px;
+    font-weight: 400;
+
+}
+.label-content{
+    max-width:540px;
+}
+.no-wrap{
+    white-space: nowrap;
+}
+.vertical-spacing{
+    height:24px;
+   
+
+}
+p{
+    margin-bottom: 0;
+    margin-top:13px;
+    display:block;
+    font-size:16px;
+}
+h1, p, h2, h3{
+    margin-bottom:0;
+    /* margin-top:0; */
+}
+.button-textcontent{
+    margin-top:2px;
+}
+.button-icon{
+    margin-top:10px;
+}
+.button-container{
+    background-image: linear-gradient(15deg, #001682, #3240e5);    width:152px;
+    height:49.95px;
+    width:151.15px;
+    color:white;
+    border-radius:4px;
+    align-items: center;
+    justify-content:center;
+    padding:16px 24px;
+    display:flex;
+    flex-direction:row;
+    grid-column-gap:6px;
+    line-height: 1.33;
+    font-size:12px;
+    font-weight:700;
+}
+
+
+
+
+
+
+
 
 /* Media Query for larger screens */
 @media (min-width: 600px) {
@@ -167,8 +280,8 @@ input {
         flex-direction: column;
     }
 
-    #app {
+    /* #app {
         width: 50%;
         max-width: 600px;
-    }
+    } */
 }
