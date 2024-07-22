@@ -38,7 +38,6 @@ body {
 .horizontal-padding{
     padding-left:47px;
     padding-right:47px;
-    
     width:100%;
 }
 .app-bar{
@@ -287,6 +286,9 @@ h1, p, h2, h3{
 .vertical-padding-bottom{
     padding-top:32px;
 }
+.vertical-padding-big{
+    padding-top:120px;
+}
 .header-label-big{
     padding-top:88px;
     color:#141719;;
@@ -373,13 +375,48 @@ h2{
 }
 .transparent-button{
     text-decoration: underline;
-
     display:flex;
     flex-direction: row;
     letter-spacing: 1.4;
     margin-top:4px;
     align-items: end;
     gap:5px;
+}
+.statistics-grid{
+    display:flex;
+    gap:30px;
+    flex-direction:row;
+    
+
+}
+.statistics-grid-item{
+    width:350px;
+    height:180px;
+    background-color: white;
+    display:flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: column;
+    gap:15px;
+    padding: 48px 40px 48px 40px;
+
+}
+.item-content{
+    width:254;
+    height:100.400;
+    display:flex;
+    flex-direction: column;
+    align-items: start;
+}
+.statistics-number{
+    font-size:44px;
+    color:black;
+    font-weight:700;
+}
+.statistics-meaning{
+    color:rgb(85, 95, 98);
+    font-size:16px;
+    font-weight:500;
 }
 
 
