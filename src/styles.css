@@ -1177,6 +1177,15 @@ a:link, a:visited {
     border: 1px solid blue;
     margin-left:50px;
 }
+@media (max-width: 890px){
+    .smooth-scroll-container{
+        height:7000px;
+
+    }
+    
+
+}
+
 
 @media (max-width: 900px){
     .footer-phone-image{
@@ -1274,10 +1283,10 @@ a:link, a:visited {
         width: 270px;
     height: 430px;
     }
-    .smooth-scroll-container{
-        height:6500px;
+    /* .smooth-scroll-container{
+        height:8000px;
 
-    }
+    } */
 
 }
 
@@ -1289,10 +1298,7 @@ a:link, a:visited {
     .two-column-grid{
         width:800px;
     }
-    .smooth-scroll-container{
-        height:6300px;
-
-    }
+    
     .glossary{
         width:1000px;
         margin-top:-250px;
