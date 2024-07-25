@@ -5,7 +5,7 @@ speed = 0.15;
 var offset = window.scrollY;
 body.style.height = Math.floor(height) + "px";
 function initSlider() {
-    const sliders = document.querySelectorAll('.slider-wrapper'); // Assuming each slider has the class 'slider-wrapper'
+    const sliders = document.querySelectorAll('.slider-wrapper'); 
     console.log(sliders.length);
     
     sliders.forEach(slider => {
@@ -70,7 +70,6 @@ function initSlider() {
             const deltaX = e.clientX - startX;
             imageList.scrollLeft = scrollLeft - deltaX;
 
-            // Optional: Clamp scroll position to avoid scrolling beyond content
             const maxScrollLeft = imageList.scrollWidth - imageList.clientWidth;
             imageList.scrollLeft = Math.max(0, Math.min(maxScrollLeft, imageList.scrollLeft));
         });
@@ -103,10 +102,7 @@ function initSlider() {
     });
 }
 
-// window.addEventListener('resize', updatePadding);
-// window.addEventListener('load', updatePadding);
-// window.addEventListener('load', initSlider);
-// smoothScroll();
+
 document.querySelectorAll('.drop-down-button').forEach(button => {
     button.addEventListener('click', function(event) {
         const buttonId = this.id;
@@ -115,21 +111,18 @@ document.querySelectorAll('.drop-down-button').forEach(button => {
         console.log(menuId);
         document.querySelector(".menu-container").style.display = "flex";
 
-        // Close all other open dropdown menus
         document.querySelectorAll('.drop-down-menu').forEach(menu => {
             if (menu.id !== menuId) {
                 menu.classList.remove('show');
             }
         });
 
-        // Toggle the visibility of the current dropdown menu
         const menu = document.getElementById(menuId);
         console.log(menu);
         menu.classList.toggle('show');
         const container = menu.querySelector('.menu-items');
         container.classList.toggle('show', menu.classList.contains('show'));
 
-        // Stop the click event from propagating to the document
         event.stopPropagation();
     });
 });
@@ -174,12 +167,9 @@ function updatePadding() {
     
     document.documentElement.style.setProperty('--global-padding-left', `${newPadding}px`);
     document.documentElement.style.setProperty('--global-padding-right', `${newPaddingRight}px`)
-    document.documentElement.style.setProperty('--screenwidth');
-    console.log(document.querySelector(".slider-row").style.marginRight);
 }
 document.getElementById('fab').addEventListener('click', function() {
 
-    // const menu = document.querySelector('fab-menu');
     const fab = document.getElementById('fab-icon');
     const close = document.getElementById('close-button');
     const fabVisibility = window.getComputedStyle(fab).visibility;
@@ -198,11 +188,30 @@ document.getElementById('fab').addEventListener('click', function() {
 
 });
 
-// window.addEventListener('click', function(event) {
-//     const menu = document.getElementById('fab-menu');
-//     const fab = document.getElementById('fab');
-    
-// });
+const languageBoxes = document.querySelectorAll('.language-box');
+const langContainers = document.querySelectorAll('.lang-container');
+
+languageBoxes.forEach((languageBox, index) => {
+    const langContainer = langContainers[index];
+
+    languageBox.addEventListener('mouseenter', () => {
+        langContainer.style.display = 'flex';
+    });
+
+    languageBox.addEventListener('mouseleave', () => {
+        langContainer.style.display = 'none';
+    });
+});
+
+function adjustContainerWidth() {
+    const container = document.getElementById('dynamic-container');
+    const newWidth = window.innerWidth / 2; 
+    container.style.width = `${newWidth}px`;
+}
+
+window.addEventListener('resize', adjustContainerWidth);
+
+
 
 
 
