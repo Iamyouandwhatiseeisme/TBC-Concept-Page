@@ -1177,6 +1177,27 @@ a:link, a:visited {
     border: 1px solid blue;
     margin-left:50px;
 }
+.fab-buttons:hover{
+    fill:white;
+
+}
+#message:hover,
+#location:hover,
+#call-center:hover {
+    background-color: #0096FF;
+}
+
+#message {
+    background-color: white;
+}
+
+#location {
+    background-color: white;
+}
+
+#call-center {
+    background-color: white;
+}
 @media (max-width: 890px){
     .smooth-scroll-container{
         height:7000px;
