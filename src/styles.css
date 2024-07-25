@@ -137,6 +137,7 @@ body {
     justify-content: center;
     align-items: center;
     padding-bottom:15px;
+    transition: color 0.3 ease;
 }
 .app-bar-buttons{
     display:flex;
@@ -298,33 +299,10 @@ h1, p, h2, h3{
 .button-icon{
     margin-top:4px;
 }
-/* .button-container{
-    background-image: linear-gradient(15deg, #001682, #3240e5);    
-    width:152px;
-    height:49.95px;
-    width:151.15px;
-    color:white;
-    border-radius:4px;
-    align-items: center;
-    justify-content:center; 
-    padding:16px 24px;
-    display:flex;
-    flex-direction:row;
-    grid-column-gap:6px;
-    line-height: 1.33;
-    font-size:12px;
-    font-weight:700;
-    cursor:pointer;
-    transition: background-color 0.4s ease-in-out;
-}
-.button-container:hover{
-    background-image: none;
-    background-color:   #3298db;
 
-} */
 .button-container {
-    position: relative; /* Ensure the pseudo-element is positioned relative to the button */
-    background-color: #3298db; /* Initial solid color */
+    position: relative; 
+    background-color: #3298db; 
     width: 151.15px;
     height: 49.95px;
     color: white;
@@ -426,9 +404,70 @@ h2{
     
 
 }
+.fab{
+    position:fixed;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
 .background:hover{
     transform:scale(1.09);
 }
+#close-button{
+    visibility: hidden;
+    bottom:20px;
+    position:absolute;
+
+}
+#fab-icon{
+    visibility: visible;
+    top:20px;
+}
+
+
+#fab-menu{
+    position:fixed;
+    display:none;
+    bottom:90px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    z-index:99;
+
+}
+
+.hover-text-container {
+    position: relative; /* Position relative to this container */
+    display: flex;
+    right:0;
+    z-index: 99;
+    margin-left:calc(100vw - 265px);
+    flex-direction: row;
+    align-items: center;
+    justify-content: start;
+    background-color: red;
+}
+.hover-text {
+    position: absolute;
+    transform: translateY(-50%); /* Center vertically */
+    display: none; /* Hidden by default */
+    padding: 10px;
+    background-color: #333;
+    color: white;
+    font-size:12px;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 150px; /* Set width of text container */
+    z-index: 20; /* Ensure it’s on top */
+}
+
+.hover-text-container:hover .hover-text {
+    display: flex; /* Show the text window */
+    opacity: 1; /* Fully visible */
+}
+
 .grid-container{
     padding-left: var(--global-padding-left);
 }
@@ -668,6 +707,144 @@ h2{
     width:21px;
     height:32px;
 }
+.cursor-pointer{
+    cursor:pointer;
+}
+.drop-down-menu-container{
+    display:flex;
+    flex-direction: row;
+    padding-left: calc(var(--global-padding-left) + 47px);
+    
+}
+
+
+.menu-items > li{
+    border-top:#001682;
+    list-style-type: none;
+    padding-top:20px;
+    color:rgb(20, 23, 25);
+    font-size:14px;
+    font-weight:500;
+    cursor:pointer;
+
+    
+}
+#product-menu-items{
+    margin-left:45px;
+    width:120px;
+
+}
+#offers-menu-items{
+    margin-left:190px;
+    width:130px;
+
+}
+#concepts-menu-items{
+    margin-left:335px;
+    
+
+}
+.animated-border {
+    position: relative;
+    overflow: hidden;
+}
+
+.animated-border::after {
+    content: '';
+    position: absolute;
+    bottom: 98.5%;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background-color: rgb(24, 44, 192);
+    transition: width 0.5s ease;
+    transform: translateX(-50%);
+}
+.search-box:hover{
+    color: rgb(85, 95, 98)
+
+}
+.decoreless-link{
+    text-decoration: none;
+
+}
+.kits{
+    transition: color 0.3 ease;
+
+}
+.kits:hover{
+    color:rgb(85, 95, 98);
+}
+.logo-container{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    width:78px;
+    height:56px;
+    background-color: white;
+    border-radius:10px;
+    border-top-right-radius:0px;
+    border-bottom-right-radius:0px;
+    position:relative;
+    left:271px;
+    bottom:200px;
+}
+.logo-item-image{
+    border-radius:10px;
+    width:100%;
+    max-height:50px;
+    /* background-color: white;
+    height:40px; */
+}
+
+.animated-border.show::after {
+    width: 100%;
+}
+.menu-image-card{
+    display:flex;
+    flex-direction: column;
+}
+.image-footer{
+    justify-content: start;
+    color:blue;
+    display:flex;
+    align-items: center;
+    gap:10px;
+}
+
+.drop-down-menu{
+    
+    display:flex;
+    position:absolute;
+    top: 100%;
+    z-index:1000;
+    width:100vw;
+    opacity: 0;
+    left:0;
+    height:0;
+    background-color: white;
+    box-sizing: border-box;
+    flex-direction: column;
+    overflow: hidden;
+    transition: opacity 1s ease, height 0.3s ease;
+
+}
+
+.drop-down-menu.show {
+    display: flex;
+    flex-direction: row;
+    opacity: 1; /* Make it fully visible */
+    height: 250px; /* Adjust height automatically */
+}
+
+.drop-down-menu > li {
+    list-style-type: none;
+    display:block;
+    padding-top:20px;
+    /* position:absolute; */
+    z-index:1000;
+}
+
 .footer-bar-items{
     padding-left:var(--global-padding-left);
     padding-right:var(--global-padding-left);
@@ -805,6 +982,34 @@ h2{
     transform: scale(1.005);
 
 }
+.fab {
+    position: fixed;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    z-index:4000;
+    bottom: 20px;
+    right: 20px;
+    width: 56px;
+    height: 56px;
+    background-color: rgba(66, 74, 77);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    font-size: 24px;
+    line-height: 56px;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+.fab:hover {
+    background-color: rgba(66, 74, 77, 0.8);;
+}
+
+.fab:active {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
 
 .card-info{
     display:flex;
@@ -813,6 +1018,8 @@ h2{
     align-items:start;
     row-gap:30px;
     padding-left:30px;
+    position:relative;
+    bottom:80px;
     
 }
 .card-info-categories{

@@ -103,10 +103,54 @@ function initSlider() {
     });
 }
 
-window.addEventListener('resize', updatePadding);
-window.addEventListener('load', updatePadding);
-window.addEventListener('load', initSlider);
-smoothScroll();
+// window.addEventListener('resize', updatePadding);
+// window.addEventListener('load', updatePadding);
+// window.addEventListener('load', initSlider);
+// smoothScroll();
+document.querySelectorAll('.drop-down-button').forEach(button => {
+    button.addEventListener('click', function(event) {
+        const buttonId = this.id;
+        const menuId = `menu-${buttonId.split('-')[1]}`;
+        console.log(buttonId);
+        console.log(menuId);
+        document.querySelector(".menu-container").style.display = "flex";
+
+        // Close all other open dropdown menus
+        document.querySelectorAll('.drop-down-menu').forEach(menu => {
+            if (menu.id !== menuId) {
+                menu.classList.remove('show');
+            }
+        });
+
+        // Toggle the visibility of the current dropdown menu
+        const menu = document.getElementById(menuId);
+        console.log(menu);
+        menu.classList.toggle('show');
+        const container = menu.querySelector('.menu-items');
+        container.classList.toggle('show', menu.classList.contains('show'));
+
+        // Stop the click event from propagating to the document
+        event.stopPropagation();
+    });
+});
+
+window.addEventListener('click', function(event) {
+    if (!event.target.matches('.drop-down-button')) {
+        document.querySelectorAll('.drop-down-menu').forEach(menu => {
+            menu.classList.remove('show');
+        });
+    }
+});
+
+document.getElementById('tbc-button').addEventListener('click', function(){
+    window.location.reload();
+
+    window.scrollTo({top:0, behavior: "smooth"})
+})
+
+
+
+
 
 
 
@@ -130,11 +174,41 @@ function updatePadding() {
     
     document.documentElement.style.setProperty('--global-padding-left', `${newPadding}px`);
     document.documentElement.style.setProperty('--global-padding-right', `${newPaddingRight}px`)
+    document.documentElement.style.setProperty('--screenwidth');
     console.log(document.querySelector(".slider-row").style.marginRight);
 }
+document.getElementById('fab').addEventListener('click', function() {
+
+    // const menu = document.querySelector('fab-menu');
+    const fab = document.getElementById('fab-icon');
+    const close = document.getElementById('close-button');
+    const fabVisibility = window.getComputedStyle(fab).visibility;
+    const menu = document.getElementById('fab-menu');
+    console.log(menu);
+
+    fab.style.visibility = fabVisibility === 'visible' ? 'hidden' : 'visible';
+
+    
+    close.style.visibility = fabVisibility === 'visible' ? 'visible' : 'hidden';  
+    menu.style.display = fabVisibility === 'visible' ? 'flex' : 'none';
+  
+    
+
+    
+
+});
+
+// window.addEventListener('click', function(event) {
+//     const menu = document.getElementById('fab-menu');
+//     const fab = document.getElementById('fab');
+    
+// });
+
+
+
 
 window.addEventListener('resize', updatePadding);
 window.addEventListener('load', updatePadding);
 window.addEventListener("load", initSlider);
-smoothScroll();
+window.addEventListener('load', smoothScroll)
 
